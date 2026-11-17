@@ -6,7 +6,7 @@
 
 ---
 
-[![Paper](https://img.shields.io/badge/OpenReview-paper-8c1b13.svg)](https://openreview.net/forum?id=k39QrQmBiI)
+[![Preprint](https://img.shields.io/badge/arXiv-preprint-b31b1b.svg)](https://arxiv.org/abs/2611.20835)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.9-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Email](https://img.shields.io/badge/email-contact-0078D4?logo=gmail&logoColor=white)](mailto:jeremy.baffou@epfl.ch)

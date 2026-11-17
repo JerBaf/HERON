@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heron"
+version = "0.1.0"
+description = "HERON: Hierarchical Regime-Conditioned Dynamics for Spatiotemporal Graphs (NeurIPS 2026)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["torch==2.9.0", "torch-geometric==2.7.0", "numpy==2.2.6", "scipy>=1.10", "PyYAML>=6.0"]
+
+[tool.setuptools]
+packages = ["heron"]

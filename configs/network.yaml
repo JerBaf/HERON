@@ -1,0 +1,11 @@
+# Network interaction dynamics R2 / P / E (Harush and Barzel), at most one switch in the context. K = 3.
+# Data: ../data/datasets/network, written by data/src/generate.py (5000 windows, C = H = 5, 8 dynamic channels).
+# Model and loss values are the defaults of heron/config.py, i.e. paper Table 20 (synthetic column).
+data:
+  root: ../data/datasets/network
+  context: 5
+  horizon: 5
+  batch_size: 256
+model:
+  num_regimes: 3
+out_dir: runs/network

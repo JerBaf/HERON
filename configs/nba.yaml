@@ -1,0 +1,34 @@
+# SportVU NBA (App. 10.4.2): 10 players + ball, fully connected, regime = play outcome (score / rebound). K = 2.
+# Node features [x, y, entity type]: only (x, y) evolve. Edge features: distance and team indicator.
+# The original train/test partition (Yue et al., 2014) is kept by writing split: "test" in the test windows.
+# Values: paper Table 20 (NBA column). TODO: data root of the pre-windowed files; optimizer values are
+# placeholders copied from the synthetic setting.
+data:
+  root: data/nba               # TODO
+  context: 8
+  horizon: 12
+  dynamic_dims: [0, 1]
+  pos_dims: [0, 1]
+  batch_size: 64
+model:
+  num_regimes: 2
+  entity_embedding_dim: 64
+  encoder_hidden_dim: 32
+  encoder_layers: 2
+  entity_hidden_dim: 48
+  system_hidden_dim: 32
+  latent_dim: 32
+  regime_hidden_dim: 64
+  expert_hidden_dim: 32
+loss:
+  prediction_weight: 5.0
+  prior_prediction_weight: 0.5
+  dynamics_kl_weight: 0.8
+  representation_kl_weight: 0.8
+  structural_weight: 1.0
+  entropy_weight: 0.05
+  orthogonality_weight: 0.01
+train:
+  tau_max: 1.0
+  tau_min: 0.3
+out_dir: runs/nba

@@ -1,0 +1,25 @@
+# Hyper-parameter search space (python -m heron.search). Lists are choices; {loguniform: [a, b]} is a range.
+# mode: random draws num_trials configurations; mode: grid enumerates every combination of the lists.
+mode: random
+num_trials: 16
+seed: 42
+space:
+  train.lr: {loguniform: [3.0e-4, 2.0e-3]}
+  train.weight_decay: [1.0e-4, 1.0e-3]
+  train.tau_max: [1.0, 1.2]
+  train.tau_min: [0.3, 0.5]
+  data.batch_size: [64, 128, 256]
+  model.entity_embedding_dim: [16, 32, 48, 64]
+  model.encoder_hidden_dim: [32, 48]
+  model.encoder_layers: [2, 4]
+  model.entity_hidden_dim: [16, 32, 48]
+  model.system_hidden_dim: [16, 32]
+  model.latent_dim: [4, 8, 16, 32]
+  model.regime_hidden_dim: [32, 48, 64]
+  model.expert_hidden_dim: [16, 32]
+  model.decoder_hidden_dim: [32, 64]
+  loss.prediction_weight: [1.0, 2.0, 3.0, 5.0]
+  loss.representation_kl_weight: [0.2, 0.8]
+  loss.structural_weight: [1.0, 2.0, 4.0]
+  loss.entropy_weight: [0.05, 0.1, 0.2]
+  loss.orthogonality_weight: [0.01, 0.05, 0.2]

@@ -1,0 +1,13 @@
+# Linear dynamics x <- a x + b: decay / static / increase, one regime per sequence. K = 3.
+# Data: ../data/datasets/linear, written by data/src/generate.py (5000 windows, C = H = 5, 8 dynamic channels).
+# Same as linear.yaml, with the example graph-recurrent backbone (examples/graph_gru.py) in place of the GRU
+# entity transition: HERON plugged onto an existing architecture (heron/backbone.py). Run with PYTHONPATH=. (repo root).
+data:
+  root: ../data/datasets/linear
+  context: 5
+  horizon: 5
+  batch_size: 256
+model:
+  num_regimes: 3
+  backbone: {class: examples.graph_gru:GraphGRU, hops: 1}
+out_dir: runs/linear_graphgru

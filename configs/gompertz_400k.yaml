@@ -1,0 +1,19 @@
+# Gompertz growth (regression / stable / progression), one regime per sequence; nodes split, so the topology changes. K = 3.
+# Data: ../data/datasets/gompertz, written by data/src/generate.py (5000 windows, C = H = 5, 8 dynamic channels).
+# Same as gompertz.yaml, but HERON is widened to ~400K trainable parameters (paper Table 21) instead of the 54K
+# given by the Table 20 widths: every width x ~2.85 (multiples of 4); latent dim, K, depth, loss, optimizer unchanged.
+data:
+  root: ../data/datasets/gompertz
+  context: 5
+  horizon: 5
+  batch_size: 256
+model:
+  num_regimes: 3
+  entity_embedding_dim: 92
+  encoder_hidden_dim: 136
+  entity_hidden_dim: 92
+  system_hidden_dim: 92
+  regime_hidden_dim: 136
+  expert_hidden_dim: 44
+  decoder_hidden_dim: 180
+out_dir: runs/gompertz_400k

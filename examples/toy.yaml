@@ -1,0 +1,14 @@
+# Toy dataset of examples/toy_dataset.py: 2 regimes, C = H = 4, (x, y) dynamic, particle type static.
+data:
+  root: data/toy
+  context: 4
+  horizon: 4
+  dynamic_dims: [0, 1]
+  pos_dims: [0, 1]
+  batch_size: 8
+  num_workers: 0
+model:
+  num_regimes: 2
+train:
+  epochs: 5
+out_dir: runs/toy

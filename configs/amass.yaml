@@ -1,0 +1,33 @@
+# AMASS + BABEL (App. 10.4.2): SMPL 22-joint skeleton, regimes = step/walk, stand, turn, sit/lower. K = 4.
+# Node features [x, y, joint type, laterality, distance to pelvis]: only (x, y) evolve. Static edge features.
+# Values: paper Table 20 (AMASS column). TODO: data root of the pre-windowed files; optimizer values are
+# placeholders copied from the synthetic setting.
+data:
+  root: data/amass             # TODO
+  context: 8
+  horizon: 12
+  dynamic_dims: [0, 1]
+  pos_dims: [0, 1]
+  batch_size: 128
+model:
+  num_regimes: 4
+  entity_embedding_dim: 64
+  encoder_hidden_dim: 32
+  encoder_layers: 4
+  entity_hidden_dim: 16
+  system_hidden_dim: 32
+  latent_dim: 16
+  regime_hidden_dim: 32
+  expert_hidden_dim: 32
+loss:
+  prediction_weight: 2.0
+  prior_prediction_weight: 0.5
+  dynamics_kl_weight: 0.8
+  representation_kl_weight: 0.2
+  structural_weight: 2.0
+  entropy_weight: 0.05
+  orthogonality_weight: 0.01
+train:
+  tau_max: 1.0
+  tau_min: 0.5
+out_dir: runs/amass

@@ -1,0 +1,13 @@
+# Network interaction dynamics R2 / P / E (Harush and Barzel), at most one switch in the context. K = 3.
+# Data: ../data/datasets/network, written by data/src/generate.py (5000 windows, C = H = 5, 8 dynamic channels).
+# Same as network.yaml, with the example graph-recurrent backbone (examples/graph_gru.py) in place of the GRU
+# entity transition: HERON plugged onto an existing architecture (heron/backbone.py). Run with PYTHONPATH=. (repo root).
+data:
+  root: ../data/datasets/network
+  context: 5
+  horizon: 5
+  batch_size: 256
+model:
+  num_regimes: 3
+  backbone: {class: examples.graph_gru:GraphGRU, hops: 1}
+out_dir: runs/network_graphgru
